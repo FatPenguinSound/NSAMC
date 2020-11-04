@@ -39,18 +39,6 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-12",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 350.0, 83.0, 29.5, 22.0 ],
-					"text" : "0.5"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-8",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -80,7 +68,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "int", "float", "int" ],
-					"patching_rect" : [ 226.0, 121.0, 40.0, 22.0 ],
+					"patching_rect" : [ 243.0, 104.0, 40.0, 22.0 ],
 					"text" : "t 1 f 0"
 				}
 
@@ -106,7 +94,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 269.0, 71.0, 30.0, 30.0 ]
+					"patching_rect" : [ 239.0, 37.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -504,13 +492,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-4", 0 ],
-					"source" : [ "obj-12", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-16", 0 ],
 					"midpoints" : [ 594.5, 312.0, 594.5, 312.0 ],
 					"source" : [ "obj-15", 1 ]
@@ -705,7 +686,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-4", 0 ],
-					"midpoints" : [ 278.5, 102.0, 240.0, 102.0, 240.0, 114.0, 235.5, 114.0 ],
+					"midpoints" : [ 248.5, 90.0, 252.5, 90.0 ],
 					"source" : [ "obj-2", 0 ]
 				}
 
@@ -811,7 +792,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-163", 0 ],
-					"midpoints" : [ 246.0, 144.0, 201.0, 144.0, 201.0, 114.0, 159.5, 114.0 ],
+					"midpoints" : [ 263.0, 129.0, 201.0, 129.0, 201.0, 114.0, 159.5, 114.0 ],
 					"source" : [ "obj-4", 1 ]
 				}
 
@@ -819,7 +800,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-5", 0 ],
-					"midpoints" : [ 256.5, 261.0, 341.5, 261.0 ],
+					"midpoints" : [ 273.5, 261.0, 341.5, 261.0 ],
 					"source" : [ "obj-4", 2 ]
 				}
 
@@ -827,7 +808,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-5", 0 ],
-					"midpoints" : [ 235.5, 234.0, 341.5, 234.0 ],
+					"midpoints" : [ 252.5, 261.0, 341.5, 261.0 ],
 					"source" : [ "obj-4", 0 ]
 				}
 
