@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 77.0, 1852.0, 929.0 ],
+		"rect" : [ 42.0, 85.0, 1852.0, 929.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,12 +39,36 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-13",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 507.0, 570.0, 91.0, 22.0 ],
+					"text" : "prepend /Fader"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-3",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 507.0, 707.0, 103.0, 22.0 ],
+					"text" : "prepend /Panning"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-23",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "bang", "int" ],
-					"patching_rect" : [ 467.0, 377.0, 110.5, 22.0 ],
+					"patching_rect" : [ 624.0, 642.0, 110.5, 22.0 ],
 					"text" : "t b i"
 				}
 
@@ -56,7 +80,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 467.0, 415.0, 111.0, 22.0 ],
+					"patching_rect" : [ 624.0, 680.0, 111.0, 22.0 ],
 					"text" : "combine /Channel i"
 				}
 
@@ -68,7 +92,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 537.0, 532.0, 111.0, 22.0 ],
+					"patching_rect" : [ 624.0, 784.0, 111.0, 22.0 ],
 					"text" : "prepend /Channel1"
 				}
 
@@ -150,7 +174,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 390.0, 749.0, 30.0, 30.0 ]
+					"patching_rect" : [ 386.0, 749.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -178,9 +202,9 @@
 					"maxclass" : "bpatcher",
 					"name" : "Panning.maxpat",
 					"numinlets" : 2,
-					"numoutlets" : 2,
+					"numoutlets" : 3,
 					"offset" : [ 0.0, 0.0 ],
-					"outlettype" : [ "signal", "signal" ],
+					"outlettype" : [ "signal", "signal", "" ],
 					"patching_rect" : [ 351.0, 653.0, 58.0, 76.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 0.0, 0.0, 40.0, 58.0 ],
@@ -212,7 +236,7 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "",
+					"comment" : "Audio In",
 					"id" : "obj-1",
 					"index" : 0,
 					"maxclass" : "inlet",
@@ -266,7 +290,16 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-21", 0 ],
+					"midpoints" : [ 516.5, 693.0, 621.0, 693.0, 621.0, 771.0, 633.5, 771.0 ],
+					"source" : [ "obj-13", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-23", 0 ],
+					"midpoints" : [ 476.5, 330.0, 561.0, 330.0, 561.0, 555.0, 633.5, 555.0 ],
 					"order" : 0,
 					"source" : [ "obj-18", 0 ]
 				}
@@ -283,7 +316,8 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-21", 0 ],
+					"destination" : [ "obj-13", 0 ],
+					"midpoints" : [ 388.5, 594.0, 492.0, 594.0, 492.0, 564.0, 516.5, 564.0 ],
 					"source" : [ "obj-2", 1 ]
 				}
 
@@ -299,6 +333,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-21", 0 ],
+					"midpoints" : [ 633.5, 705.0, 633.5, 705.0 ],
 					"source" : [ "obj-22", 0 ]
 				}
 
@@ -306,6 +341,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-22", 1 ],
+					"midpoints" : [ 633.5, 672.0, 725.5, 672.0 ],
 					"order" : 0,
 					"source" : [ "obj-23", 0 ]
 				}
@@ -314,8 +350,25 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-22", 0 ],
+					"midpoints" : [ 633.5, 666.0, 633.5, 666.0 ],
 					"order" : 1,
 					"source" : [ "obj-23", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 0 ],
+					"midpoints" : [ 516.5, 771.0, 633.5, 771.0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"midpoints" : [ 399.5, 732.0, 492.0, 732.0, 492.0, 702.0, 516.5, 702.0 ],
+					"source" : [ "obj-5", 2 ]
 				}
 
 			}
@@ -330,7 +383,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
-					"midpoints" : [ 399.5, 732.0, 399.5, 732.0 ],
+					"midpoints" : [ 380.0, 744.0, 395.5, 744.0 ],
 					"source" : [ "obj-5", 1 ]
 				}
 
@@ -338,14 +391,14 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "Fader.maxpat",
-				"bootpath" : "D:/Adaptive VR FoH/TestMixingConsole",
+				"bootpath" : "D:/VirtualMixingConsole/src",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "Panning.maxpat",
-				"bootpath" : "D:/Adaptive VR FoH/TestMixingConsole",
+				"bootpath" : "D:/VirtualMixingConsole/src",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
