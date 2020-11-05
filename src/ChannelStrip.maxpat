@@ -65,6 +65,8 @@
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "signal", "" ],
 					"patching_rect" : [ 345.0, 176.0, 259.0, 350.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 345.0, 176.0, 259.0, 350.0 ],
 					"viewvisibility" : 1
 				}
 
