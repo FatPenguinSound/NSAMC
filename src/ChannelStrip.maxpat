@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1954.0, 77.0, 1852.0, 929.0 ],
+		"rect" : [ 34.0, 77.0, 1852.0, 929.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -210,7 +210,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 380.0, 950.0, 30.0, 30.0 ]
+					"patching_rect" : [ 379.0, 1008.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -222,7 +222,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 345.0, 950.0, 30.0, 30.0 ]
+					"patching_rect" : [ 344.0, 1008.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -435,7 +435,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-7", 0 ],
-					"midpoints" : [ 354.5, 933.0, 354.5, 933.0 ],
+					"midpoints" : [ 354.5, 933.0, 353.5, 933.0 ],
 					"source" : [ "obj-5", 0 ]
 				}
 
@@ -443,7 +443,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
-					"midpoints" : [ 374.0, 945.0, 389.5, 945.0 ],
+					"midpoints" : [ 374.0, 945.0, 388.5, 945.0 ],
 					"source" : [ "obj-5", 1 ]
 				}
 
@@ -465,6 +465,20 @@
 			}
 , 			{
 				"name" : "Equalizer.maxpat",
+				"bootpath" : "D:/VirtualMixingConsole/src",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "EQbandAbstraction.maxpat",
+				"bootpath" : "D:/VirtualMixingConsole/src",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "EQparameterConverterAbstraction.maxpat",
 				"bootpath" : "D:/VirtualMixingConsole/src",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
