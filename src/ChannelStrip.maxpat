@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 42.0, 85.0, 1852.0, 929.0 ],
+		"rect" : [ 1954.0, 77.0, 1852.0, 929.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -52,6 +52,8 @@
 					"numoutlets" : 0,
 					"offset" : [ 0.0, 0.0 ],
 					"patching_rect" : [ 245.0, 832.0, 42.0, 187.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 137.0, 513.0, 42.0, 187.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -85,7 +87,7 @@
 					"outlettype" : [ "signal", "" ],
 					"patching_rect" : [ 345.0, 176.0, 259.0, 350.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 345.0, 176.0, 259.0, 350.0 ],
+					"presentation_rect" : [ 2.0, 25.0, 272.0, 426.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -217,7 +219,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 637.0, 46.0, 50.0, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 637.0, 46.0, 50.0, 22.0 ]
+					"presentation_rect" : [ 2.0, 1.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -250,7 +252,7 @@
 					"outlettype" : [ "multichannelsignal", "" ],
 					"patching_rect" : [ 345.0, 854.0, 58.0, 76.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 0.0, 40.0, 58.0 ],
+					"presentation_rect" : [ 118.0, 453.0, 40.0, 58.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -266,13 +268,13 @@
 					"lockeddragscroll" : 0,
 					"maxclass" : "bpatcher",
 					"name" : "Fader.maxpat",
-					"numinlets" : 2,
-					"numoutlets" : 2,
+					"numinlets" : 3,
+					"numoutlets" : 3,
 					"offset" : [ 0.0, 0.0 ],
-					"outlettype" : [ "signal", "" ],
+					"outlettype" : [ "signal", "", "float" ],
 					"patching_rect" : [ 345.0, 597.0, 47.0, 196.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 6.0, 60.0, 28.0, 165.0 ],
+					"presentation_rect" : [ 107.0, 524.0, 28.0, 165.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -318,7 +320,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-2", 1 ],
-					"midpoints" : [ 382.5, 588.0, 382.5, 588.0 ],
+					"midpoints" : [ 382.5, 588.0, 368.5, 588.0 ],
 					"source" : [ "obj-11", 0 ]
 				}
 
@@ -384,7 +386,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-13", 0 ],
-					"midpoints" : [ 382.5, 795.0, 486.0, 795.0, 486.0, 765.0, 510.5, 765.0 ],
+					"midpoints" : [ 368.5, 795.0, 486.0, 795.0, 486.0, 765.0, 510.5, 765.0 ],
 					"source" : [ "obj-2", 1 ]
 				}
 
