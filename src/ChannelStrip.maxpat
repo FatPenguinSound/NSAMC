@@ -492,6 +492,20 @@
 				"implicit" : 1
 			}
 , 			{
+				"name" : "EQcoeffLogicAbstraction.maxpat",
+				"bootpath" : "D:/VirtualMixingConsole/src",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "coeffListProcessing.js",
+				"bootpath" : "D:/VirtualMixingConsole/src",
+				"patcherrelativepath" : ".",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "hoa.pi.mxe64",
 				"type" : "mx64"
 			}
