@@ -1,0 +1,112 @@
+\documentclass[letterpaper, 12pt, twosided, twocolumn]{article}
+\usepackage{fullpage}
+
+\title{A Networked Software Audio Mixing Console}
+\author{Jeffrey M. Clark}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This project describes a networked software audio mixing console (N-SAMC). Most mixing consoles for live audio are hardware-based, which ensures a high degree of stability within the system -- often desirable for real-time audio processing. Software mixers are often used in conjunction with a digital audio workstation (DAW), and are characterized by their flexibility.
+
+This project, \textit{prima facie}, appears to take the worst of both world: the relative inflexibility of a hardware console with the instability of the software console. However, the this console is not specifically intended for live-audio work; but rather for testing and development of related systems which need a specifically-known basis. Additionally, the N-SAMC incorporates an OSC structure that is open, known, and documented. For development and testing, it is helpful to have a system that is completely known.
+
+The N-SAMC is built in Max/MSP. While the Max/MSP ecosystem increases the computational overhead over a purpose-built system in C++, the flexibility and ease of use represented by Max/MSP yeilds a significant advantage for the N-SAMC as a development tool. Likewise, the N-SAMC has been built modularly -- with each processing section developed as an abstraction. This allows for specific configurations to be quickly compiled to suite specific needs.
+
+Unfortunately, the Max/MSP design requires 
+
+\section{Signal Flow}
+
+The N-SAMC emulates the traditional mixing structure of a console mixer. The base implimentation consists of a dynamics range processor, a multiband, parametric equalizer, a low-cut filter, a stereo panner, and a fader. The mixer also includes 6 auxillary sends, which are switchable pre or post fader.
+
+\subsection{Low-Cut Filter}
+
+The low-cut filter occurs first in the signal chain. It is built from a pair of cascaded biquad filters, emulating a fourth-order IIR filter topology.
+
+\subsection{Dynamic Range Processing}
+
+The dynamics range processing section consists of two processing units. Either unit can function as either a compressor or a gate. The position of the dynamics range processor is switchable to pre or post-EQ.
+
+The settings follow the usual \emph{attack}, \emph{release}, and \emph{threshold} values. The module also includes visual meters that monitor the input gain and the gain reduction values.
+
+\subsection{Equalizer}
+
+The equalizer section consists of a bank of four filters which are settable parametrically by the user throught the usual \emph{frequency}, \emph{Q}, and \emph{gain} values. The current implimentation fixes the filters as peaking filters.
+
+\subsection{Fader}
+
+The fader section includes a fader. The fader occurs pre-panner in signal-flow, despite visually ocurring below the panning controls. The fader applies a simple multiplier against the input signal.
+
+\subsection{Panner}
+
+The panning module is a simple stereo panner, operating on a sin-cos (-3dB at center) algorithm. The panner occurs post-fader. The N-SAMC is fixed to operate in two-channel stereo mode.
+
+\section{OSC}
+
+To fullfil the requirement of being networked every item within the N-SAMC is accessible through OSC. This includes all controls and outputs.
+
+The OSC description is divided into two sections: input and output. The input section will outline how to externally control the N-SAMC from a client. The output section will outline how information from the N-SAMC is sent to the client program.
+
+\subsection{Input}
+
+The N-SAMC is divided into three top-level addresses: /Mixer, /Aux, and /Main. For /Mixer and /Aux, each channel is numbered (so /Mixer /1 would address the first channel of the N-SAMC mixer). Within each channel (or /Master) each module is addressed individually. Each control of each module is individually addressable. 
+
+All of the input controls for the N-SAMC take in either a floating-point value between 0 and 1, or an integer of either 0 or 1. The OSC addressing of the N-SAMC will handle the the appropriate scaling and offseting of the inputs.
+
+\subsubsection{/LCF}
+
+The channel low-cut filter has a single control: the filter cutoff. The filter cuttoff takes the input value without a separate address.
+
+\subsubsection{/EQ}
+
+The equalizer is divided into four bands, each addressed by number. Each band has four controls: a toggle to activate or deactivate the band, the center frequency, the Q factor, and the filter gain. These are addressed as /Active, /Frequency, /Q, and /Gain respectively.
+
+\subsubsection{/Dynamics}
+
+The N-SAMC has two dynamics range processors that are addressable by number. There is a toggle for switching them between a compressor and a gate: /Type. This toggle uses 0 for a compressor and 1 for a gate. The rest of the controls are named /Attack, /Release, and /Threshold.
+
+\subsubsection{/Panning}
+
+The panning module has a single control: the panning amount. Like /LCF, the panning module just takes a single value for the panning with no separate address (i.e. The module needs to be addressed, but the control doesn't).
+
+\subsubsection{/Fader}
+
+The fader section has two controls, the fader value and the mute toggle. These are /Fader\footnote{This does mean that the fader vaule will require /Fader twice in its address. Example for clarity: /Mix /1 /Fader /Fader 0.7} and /Mute. /Mute is a toggle with 0 having the channel active and 1 activating the mute. A value of 0.79543 will set the fader to 0dB.
+
+The default fader input conversion from a desired decibel value can be found:
+
+\begin{equation}
+v = 10^{\frac{D - 6}{60}}
+\end{equation}
+
+Where D is the input decibel number, and v is the fader value. This is included here as the process is more than a linear scale/offset combination. 
+
+\subsection{Output}
+
+Output addressing for controls follows the same system as the input addressing for the controls. The controls give their expected output values (reflecting the UI, though at full floating-point precision where appropriate) with some obvious exceptions which output a normalized value from 0 to 1\footnote{e.g. /Panning}. Additionally, metering outputs are handled separately, to avoid sending more OSC messages than neccessary. Finally, the biquad coefficients for the filter banks are output for each channel when the filters are changed.
+
+\subsubsection{Metering Updates}
+
+Metering updates are obtained by addressing the top-level address of /Meters
+
+The OSC client will need to subscribe to updates from the N-SAMC. This can be done by sending any value to /Subscribe. This will then subscribe the client to the N-SAMC's metering output for 30 seconds; causing the N-SAMC to push out metering updates on a fixed interval to the client. The interval time can be set by sending a value in milliseconds to /Rate. Finally, any value to /Update will cause the N-SAMC to immidiately push out a metering update.
+
+The metering update will consist of four long messages, three addressed to /Meters and the fourth addressed to /Dynamics (all with the /Meters top level address). The /Meters messages contain the channel meters values for the /Mix, /Aux, and /Master. Each channel has two values.
+
+The /Dynamics meters are the dynamics processor's gain reduction values. Again, each channel has two processors. 
+
+\subsubsection{EQ Coefficents}
+
+Changes in the EQ settings will output the biquad coefficients for the filters along with the independent parameter changes. This is done to make external graphing of the filter transfer function easier and prevent client programs from having to do the intermediate calculations required.
+
+The coefficents for each channel are output as a set of values from the module under the address /Coefficients.
+
+\section{Development}
+
+The development roadmap for the N-SAMC includes plans to create effects buses, a offer a wider array of standard settings and configurations common audio live-audio consoles.
+
+\end{document}
