@@ -53,7 +53,7 @@
 					"offset" : [ 0.0, 0.0 ],
 					"patching_rect" : [ 245.0, 832.0, 42.0, 187.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 137.0, 513.0, 42.0, 187.0 ],
+					"presentation_rect" : [ 137.0, 640.0, 42.0, 187.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -87,7 +87,7 @@
 					"outlettype" : [ "signal", "" ],
 					"patching_rect" : [ 345.0, 176.0, 259.0, 350.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 2.0, 25.0, 272.0, 426.0 ],
+					"presentation_rect" : [ 2.0, 142.0, 272.0, 426.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -252,7 +252,7 @@
 					"outlettype" : [ "multichannelsignal", "" ],
 					"patching_rect" : [ 345.0, 854.0, 58.0, 76.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 118.0, 453.0, 40.0, 58.0 ],
+					"presentation_rect" : [ 118.0, 580.0, 40.0, 58.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -274,7 +274,7 @@
 					"outlettype" : [ "signal", "", "float" ],
 					"patching_rect" : [ 345.0, 597.0, 47.0, 196.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 107.0, 524.0, 28.0, 165.0 ],
+					"presentation_rect" : [ 107.0, 651.0, 28.0, 165.0 ],
 					"viewvisibility" : 1
 				}
 
